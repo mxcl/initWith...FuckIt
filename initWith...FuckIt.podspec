@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "initWith...FuckIt"
-  s.version = "1.0"
+  s.version = "1.1"
   s.homepage = "https://github.com/mxcl/#{s.name}"
   s.source = { :git => "https://github.com/mxcl/#{s.name}.git", :tag => s.version }
   s.license = { :type => 'Public Domain', :text => 'This text or CocoaPods throws a fit' }

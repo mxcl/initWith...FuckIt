@@ -6,14 +6,14 @@
 @implementation UILabel (FuckIt)
 
 + (instancetype):(id)text {
-    UILabel *label = [UILabel new];
+    UILabel *label = [self new];
     label.text = [text description];
     [label sizeToFit];
     return label;
 }
 
 + (instancetype):(id)text :(UIFont *)font {
-    UILabel *label = [UILabel new];
+    UILabel *label = [self new];
     label.text = [text description];
     label.font = font;
     [label sizeToFit];
@@ -40,7 +40,7 @@
 }
 
 + (instancetype):(NSString *)title :(id)message {
-    return [UIAlertView:title:message:@"OK"];
+    return [self:title:message:@"OK"];
 }
 
 + (instancetype):(NSString *)title :(id)message :(NSString *)cancelButtonText {
@@ -61,3 +61,26 @@
 
 @end
 
+
+
+@implementation UIImage (FuckIt)
+
++ (instancetype):(NSString *)name {
+    return [self imageNamed:name];
+}
+
+@end
+
+
+
+@implementation UIImageView (FuckIt)
+
++ (instancetype):(id)obj {
+    if (![obj isKindOfClass:[UIImage class]])
+        obj = [UIImage imageNamed:[obj description]];
+    UIImageView *iv = [[self alloc] initWithImage:obj];
+    [iv sizeToFit];
+    return iv;
+}
+
+@end

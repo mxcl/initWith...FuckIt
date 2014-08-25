@@ -15,3 +15,19 @@
 + (instancetype):(NSString *)title :(id)message;
 + (instancetype):(NSString *)title :(id)message :(NSString *)cancelButtonText;
 @end
+
+
+
+#import <UIKit/UIImage.h>
+
+@interface UIImage (FuckIt)
++ (instancetype):(NSString *)name;
+@end
+
+
+
+#import <UIKit/UIImageView.h>
+
+@interface UIImageView (FuckIt)
++ (instancetype):(id)imageOrImageNameString;
+@end
