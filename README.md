@@ -1,6 +1,4 @@
-Constructors for people who don’t give a fuck if you think terseness is readable or not.
-
-Do you find this unreadable?
+Constructors for people who GT(F)D.
 
 ```objc
 - (void)onSomeFuckingErrorHappened:(NSError *)fuckingError {
@@ -8,13 +6,13 @@ Do you find this unreadable?
     [alert show];
 }
 
-- (void)makeLabels {
-    UILabel *ll = [UILabel:@"Terseness is cool":@"Times New Roman":16];
-    [self.view addSubview:ll]
+- (void)makeSomeFuckingLabels {
+    UILabel *l1 = [UILabel:@"Terseness is cool"];
+    UILabel *l2 = [UILabel:@"Terseness is cool":[UIFont systemFontOfSize:13]];
+    UILabel *l3 = [UILabel:@"Terseness is cool":@"Times New Roman":16];
+    // …
 }
 ```
-
-If you don’t like it…whatever.
 
 
 # Install
