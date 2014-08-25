@@ -33,7 +33,11 @@
 
 + (instancetype):(id)title {
     if ([title isKindOfClass:[NSError class]]) {
-        return [self:@"Unexpected Error":title];
+        NSError *err = title;
+        if ([err.domain isEqualToString:NSURLErrorDomain])
+            return [self:@"Network Error":err];
+        else
+            return [self:@"Unexpected Error":err];
     } else {
         return [self:title:nil];
     }
