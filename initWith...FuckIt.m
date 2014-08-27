@@ -1,5 +1,33 @@
+#import <Foundation/Foundation.h>
 #import "initWith...FuckIt.h"
 #import <UIKit/UIKit.h>
+
+
+@implementation NSAttributedString (FuckIt)
+
++ (instancetype):(NSString *)stringFormat, ... {
+    va_list args;
+    va_start(args, stringFormat);
+    id rv = [[self alloc] initWithString:[[NSString alloc] initWithFormat:stringFormat arguments:args]];
+    va_end(args);
+    return rv;
+}
+
+@end
+
+
+
+@implementation NSString (FuckIt)
+
++ (instancetype):(NSString *)stringFormat, ... {
+    va_list args;
+    va_start(args, stringFormat);
+    id rv = [[NSString alloc] initWithFormat:stringFormat arguments:args];
+    va_end(args);
+    return [[self alloc] initWithString:rv];
+}
+
+@end
 
 
 
@@ -61,6 +89,16 @@
     UIAlertView *av = [[self alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonText otherButtonTitles:nil];
     [av show];  // no more forgetting to call `-show` in production code
     return av;
+}
+
+@end
+
+
+
+@implementation UIBarButtonItem (FuckIt)
+
++ (instancetype):(UIImage *)img target:(id)target :(SEL)selector {
+    return [[UIBarButtonItem alloc] initWithImage:img style:UIBarButtonItemStyleBordered target:target action:selector];
 }
 
 @end

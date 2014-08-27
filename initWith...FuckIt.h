@@ -1,9 +1,15 @@
-#import <UIKit/UILabel.h>
+#import <Foundation/NSAttributedString.h>
 
-@interface UILabel (FuckIt)
-+ (instancetype):(id)text;
-+ (instancetype):(id)text :(UIFont *)font;
-+ (instancetype):(id)text :(NSString *)fontName :(float)size;
+@interface NSAttributedString (FuckIt)
++ (instancetype):(NSString *)stringFormat, ...;
+@end
+
+
+
+#import <Foundation/NSString.h>
+
+@interface NSString (FuckIt)
++ (instancetype):(NSString *)stringFormat, ...;
 @end
 
 
@@ -26,8 +32,26 @@
 
 
 
+#import <UIKit/UILabel.h>
+
+@interface UILabel (FuckIt)
++ (instancetype):(id)text;
++ (instancetype):(id)text :(UIFont *)font;
++ (instancetype):(id)text :(NSString *)fontName :(float)size;
+@end
+
+
+
 #import <UIKit/UIImageView.h>
 
 @interface UIImageView (FuckIt)
 + (instancetype):(id)imageOrImageNameString;
+@end
+
+
+
+#import <UIKit/UIBarButtonItem.h>
+
+@interface UIBarButtonItem (FuckIt)
++ (instancetype):(UIImage *)img target:(id)target :(SEL)selector;
 @end
