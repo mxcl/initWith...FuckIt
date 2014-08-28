@@ -14,6 +14,31 @@
 
 
 
+#if !TARGET_OS_IPHONE
+
+
+
+#import <Foundation/NSTask.h>
+
+@interface NSTask (FuckIt)
+/**
+ You can pass a stringFormat or an array.
+
+ If you pass a string then we will split it on spaces to construct the
+ arguments array that NSTask requires.
+
+ A common trick to get around space problems is to set environment
+ variables. The shell will then insert them in a space-safe way.
+*/
++ (instancetype):(id)stringFormatOrArray, ...;
+@end
+
+
+
+#else
+
+
+
 #import <UIKit/UIAlertView.h>
 
 @interface UIAlertView (FuckIt)
@@ -55,3 +80,7 @@
 @interface UIBarButtonItem (FuckIt)
 + (instancetype):(UIImage *)img target:(id)target :(SEL)selector;
 @end
+
+
+
+#endif

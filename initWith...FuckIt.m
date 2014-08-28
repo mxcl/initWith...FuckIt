@@ -3,6 +3,7 @@
 #import <UIKit/UIKit.h>
 
 
+
 @implementation NSAttributedString (FuckIt)
 
 + (instancetype):(NSString *)stringFormat, ... {
@@ -28,6 +29,10 @@
 }
 
 @end
+
+
+
+#if TARGET_OS_IPHONE
 
 
 
@@ -126,3 +131,33 @@
 }
 
 @end
+
+
+
+#else
+
+
+
+@implementation NSTask (MM)
+
++ (instancetype):(id)input, ... {
+    if ([input isKindOfClass:[NSString class]]) {
+        va_list args;
+        va_start(args, input);
+        id s = [[NSString alloc] initWithFormat:input arguments:args]];
+        va_end(args);
+
+        input = [s componentsSeparatedByString:@" "];
+    }
+
+    NSTask *task = [self new];
+    task.launchPath = input.firstObject;
+    task.arguments = [input subarrayWithRange:NSMakeRange(1, input.count - 1)];
+    return task;
+}
+
+@end
+
+
+
+#endif
