@@ -62,15 +62,22 @@
 
 
 
+static NSString *UIAlertViewTitleForErrorDomain(NSString *domain) {
+    if (domain == NSURLErrorDomain) return @"Network Error";
+    if ([domain isEqualToString:@"kCLErrorDomain"]) return @"Location Error";
+    if ([domain isEqualToString:@"SKErrorDomain"]) return @"App Store Error";
+    if ([domain isEqualToString:@"PMKErrorDomain"]) return @"Unexpected Error";
+    if (domain == NSXMLParserErrorDomain) return @"XML Parsing Error";
+    return @"Error";
+}
+
+
+
 @implementation UIAlertView (FuckIt)
 
 + (instancetype):(id)title {
     if ([title isKindOfClass:[NSError class]]) {
-        NSError *err = title;
-        if ([err.domain isEqualToString:NSURLErrorDomain])
-            return [self:@"Network Error":err];
-        else
-            return [self:@"Unexpected Error":err];
+        return [self:UIAlertViewTitleForErrorDomain([title domain]):title];
     } else {
         return [self:title:nil];
     }
