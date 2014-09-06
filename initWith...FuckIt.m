@@ -18,6 +18,41 @@
 
 
 
+@implementation NSIndexPath (FuckIt)
+
++ (instancetype):(NSUInteger)row :(NSUInteger)section {
+    return [NSIndexPath indexPathForRow:row inSection:section];
+}
+
+@end
+
+
+
+@implementation NSIndexSet (FuckIt)
+
++ (instancetype):(NSUInteger)index {
+    return [NSIndexSet indexSetWithIndex:index];
+}
+
++ (instancetype):(NSUInteger)index1 :(NSUInteger)index2 {
+    NSMutableIndexSet *set = [NSMutableIndexSet indexSet];
+    [set addIndex:index1];
+    [set addIndex:index2];
+    return set;
+}
+
++ (instancetype):(NSUInteger)index1 :(NSUInteger)index2 :(NSUInteger)index3 {
+    NSMutableIndexSet *set = [NSMutableIndexSet indexSet];
+    [set addIndex:index1];
+    [set addIndex:index2];
+    [set addIndex:index3];
+    return set;
+}
+
+@end
+
+
+
 @implementation NSString (FuckIt)
 
 + (instancetype):(NSString *)stringFormat, ... {

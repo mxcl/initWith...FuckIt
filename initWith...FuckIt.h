@@ -6,6 +6,25 @@
 
 
 
+
+#import <Foundation/NSIndexSet.h>
+
+@interface NSIndexSet (FuckIt)
++ (instancetype):(NSUInteger)index;
++ (instancetype):(NSUInteger)index1 :(NSUInteger)index2;
++ (instancetype):(NSUInteger)index1 :(NSUInteger)index2 :(NSUInteger)index3;
+@end
+
+
+
+#import <Foundation/NSIndexPath.h>
+
+@interface NSIndexPath (FuckIt)
++ (instancetype):(NSUInteger)row :(NSUInteger)section;
+@end
+
+
+
 #import <Foundation/NSString.h>
 
 @interface NSString (FuckIt)
