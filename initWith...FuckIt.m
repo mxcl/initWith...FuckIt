@@ -112,6 +112,13 @@ static NSString *UIAlertViewTitleForErrorDomain(NSString *domain) {
 
 + (instancetype):(id)title {
     if ([title isKindOfClass:[NSError class]]) {
+        NSError *error = title;
+        if (error.domain == NSCocoaErrorDomain && error.code == 3840) {
+            // is a NSJSONSerialization error and we need to make it more helpful
+            id parts = [NSArray arrayWithObjects:error.localizedDescription, error.userInfo[@"NSDebugDescription"], nil];
+            id message = [parts componentsJoinedByString:@". "];
+            return [self:@"JSON Error":message];
+        }
         return [self:UIAlertViewTitleForErrorDomain([title domain]):title];
     } else {
         return [self:title:nil];
