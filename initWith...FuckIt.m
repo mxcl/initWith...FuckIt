@@ -119,7 +119,7 @@ static NSString *UIAlertViewTitleForErrorDomain(NSString *domain) {
             id message = [parts componentsJoinedByString:@". "];
             return [self:@"JSON Error":message];
         }
-        return [self:UIAlertViewTitleForErrorDomain([title domain]):title];
+        return [self:UIAlertViewTitleForErrorDomain(error.domain):error];
     } else {
         return [self:title:nil];
     }
