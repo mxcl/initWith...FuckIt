@@ -33,6 +33,14 @@
 
 
 
+#import <Foundation/NSURL.h>
+
+@interface NSURL (FuckIt)
++ (instancetype):(NSString *)url;
+@end
+
+
+
 #if !TARGET_OS_IPHONE
 
 
@@ -51,6 +59,7 @@
 */
 + (instancetype):(id)stringFormatOrArray, ...;
 @end
+
 
 
 

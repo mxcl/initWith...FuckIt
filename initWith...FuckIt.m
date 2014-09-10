@@ -67,6 +67,16 @@
 
 
 
+@implementation NSURL (FuckIt)
+
++ (instancetype):(NSString *)url {
+    return [NSURL URLWithString:url];
+}
+
+@end
+
+
+
 #if TARGET_OS_IPHONE
 
 
