@@ -146,9 +146,21 @@ static NSString *UIAlertViewTitleForErrorDomain(NSString *domain) {
             NSLog(@"Error Localized Failure Reason: %@", fr);
     }
 
-    message = [message respondsToSelector:@selector(localizedDescription)]
-        ? [message localizedDescription]
-        : [message description];
+    if ([message isKindOfClass:[NSError class]]) {
+        NSError *error = (id) message;
+        message = error.localizedDescription;
+
+        NSHTTPURLResponse *rsp = error.userInfo[@"PMKURLErrorFailingURLResponseKey"];
+        if (rsp) {
+            message = [message stringByAppendingFormat:@" When accessing: %@.", rsp.URL.absoluteString];
+            if ([rsp isKindOfClass:[NSHTTPURLResponse class]]) {
+                int code = (int) rsp.statusCode;
+                message = [message stringByAppendingFormat:@" Response code: %d", code];
+            }
+        }
+    } else {
+        message = [message description];
+    }
 
     UIAlertView *av = [[self alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonText otherButtonTitles:nil];
     [av show];  // no more forgetting to call `-show` in production code
