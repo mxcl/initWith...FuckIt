@@ -148,7 +148,9 @@ static NSString *UIAlertViewTitleForErrorDomain(NSString *domain) {
 
     if ([message isKindOfClass:[NSError class]]) {
         NSError *error = (id) message;
-        message = error.localizedDescription;
+        message = [error.localizedDescription stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if (![message hasSuffix:@"."])
+            message = [message stringByAppendingString:@"."];
 
         NSHTTPURLResponse *rsp = error.userInfo[@"PMKURLErrorFailingURLResponseKey"];
         if (rsp) {
