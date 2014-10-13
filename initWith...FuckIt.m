@@ -176,7 +176,7 @@ static NSString *UIAlertViewTitleForErrorDomain(NSString *domain) {
 @implementation UIBarButtonItem (FuckIt)
 
 + (instancetype):(UIImage *)img target:(id)target :(SEL)selector {
-    return [[UIBarButtonItem alloc] initWithImage:img style:UIBarButtonItemStyleBordered target:target action:selector];
+    return [[UIBarButtonItem alloc] initWithImage:img style:UIBarButtonItemStylePlain target:target action:selector];
 }
 
 @end
