@@ -107,7 +107,7 @@
 
 
 
-static NSString *UIAlertViewTitleForErrorDomain(NSString *domain) {
+static NSString *UIAlertControllerTitleForErrorDomain(NSString *domain) {
     if (domain == NSURLErrorDomain) return @"Network Error";
     if ([domain isEqualToString:@"kCLErrorDomain"]) return @"Location Error";
     if ([domain isEqualToString:@"SKErrorDomain"]) return @"App Store Error";
@@ -118,7 +118,7 @@ static NSString *UIAlertViewTitleForErrorDomain(NSString *domain) {
 
 
 
-@implementation UIAlertView (FuckIt)
+@implementation UIAlertController (FuckIt)
 
 + (instancetype):(id)title {
     if ([title isKindOfClass:[NSError class]]) {
@@ -129,7 +129,7 @@ static NSString *UIAlertViewTitleForErrorDomain(NSString *domain) {
             id message = [parts componentsJoinedByString:@". "];
             return [self:@"JSON Error":message];
         }
-        return [self:UIAlertViewTitleForErrorDomain(error.domain):error];
+        return [self:UIAlertControllerTitleForErrorDomain(error.domain):error];
     } else {
         return [self:title:nil];
     }
@@ -164,10 +164,11 @@ static NSString *UIAlertViewTitleForErrorDomain(NSString *domain) {
         message = [message description];
     }
 
-    UIAlertView *av = [[self alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonText otherButtonTitles:nil];
-    [av show];  // no more forgetting to call `-show` in production code
+    UIAlertController *av = [self alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [av addAction:[UIAlertAction actionWithTitle:cancelButtonText style:UIAlertActionStyleCancel handler:nil]];
     return av;
 }
+
 
 @end
 
