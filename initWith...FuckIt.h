@@ -67,9 +67,9 @@
 
 
 
-#import <UIKit/UIAlertView.h>
+#import <UIKit/UIAlertController.h>
 
-@interface UIAlertView (FuckIt)
+@interface UIAlertController (FuckIt)
 + (instancetype):(id)titleOrError;
 + (instancetype):(NSString *)title :(id)message;
 + (instancetype):(NSString *)title :(id)message :(NSString *)cancelButtonText;
