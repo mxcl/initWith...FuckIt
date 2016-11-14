@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "initWith...FuckIt"
-  s.version = "1.8.3"
+  s.version = "2.0.0"
   s.homepage = "https://github.com/mxcl/#{s.name}"
   s.source = { :git => "https://github.com/mxcl/#{s.name}.git", :tag => s.version }
   s.license = { :type => 'Public Domain', :text => 'This text or CocoaPods throws a fit' }
@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'UIKit'
   s.requires_arc = true
   s.ios.deployment_target = '5.0'
+  s.module_name = 'initWithFuckIt'
 end
