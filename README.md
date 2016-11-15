@@ -2,8 +2,8 @@ Constructors for people who GT(F)D.
 
 ```objc
 - (void)onSomeFuckingErrorHappened:(NSError *)fuckingError {
-    UIAlertView *alert = [UIAlertView:fuckingError];
-    [alert show];
+    UIAlertController *alert = [UIAlertController:fuckingError];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)makeSomeFuckingLabels {
